@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yummy - Recipe Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="logo">🍓 Yummy<span>.</span></a>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#recipes">Recipes</a>
+            <button onclick="showFavorites()">❤️ Favorites</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <span class="tagline">YOUR DAILY DOSE OF DELICIOUS</span>
+
+            <h1>Find your next<br>
+                <span>favorite meal!</span>
+            </h1>
+
+            <p>
+                Discover easy, delicious recipes for every craving.
+                Search, cook, and enjoy!
+            </p>
+
+            <a href="#recipes" class="hero-button">
+                Explore Recipes ↓
+            </a>
+        </div>
+
+        <div class="hero-emoji">🍕</div>
+    </header>
+
+    <!-- Search Section -->
+    <main id="recipes">
+        <section class="recipe-section">
+
+            <div class="section-heading">
+                <div>
+                    <p class="small-heading">WHAT ARE YOU CRAVING?</p>
+                    <h2>Explore Recipes 🍽️</h2>
+                </div>
+                <p class="recipe-count" id="recipeCount"></p>
+            </div>
+
+            <div class="search-box">
+                <span>🔍</span>
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search pizza, pasta, salad..."
+                    oninput="displayRecipes()"
+                >
+                <button onclick="clearSearch()">Clear</button>
+            </div>
+
+            <!-- Category Filters -->
+            <div class="categories">
+                <button class="category active"
+                    onclick="filterCategory('All', this)">All</button>
+
+                <button class="category"
+                    onclick="filterCategory('Breakfast', this)">🍳 Breakfast</button>
+
+                <button class="category"
+                    onclick="filterCategory('Lunch', this)">🥗 Lunch</button>
+
+                <button class="category"
+                    onclick="filterCategory('Dinner', this)">🍝 Dinner</button>
+
+                <button class="category"
+                    onclick="filterCategory('Dessert', this)">🍰 Dessert</button>
+            </div>
+
+            <!-- Recipe Cards Appear Here -->
+            <div class="recipe-grid" id="recipeGrid"></div>
+
+            <p class="empty-message" id="emptyMessage" hidden>
+                😕 No recipes found. Try another search!
+            </p>
+
+        </section>
+    </main>
+
+    <!-- Recipe Details Modal -->
+    <div class="modal" id="recipeModal" onclick="closeOutside(event)">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal()">✕</button>
+            <div id="recipeDetails"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <h2>🍓 Yummy.</h2>
+        <p>Made with ❤️ for food lovers.</p>
+        <p class="copyright">© 2026 Yummy Recipe Finder</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
